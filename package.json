@@ -1,0 +1,24 @@
+{
+  "name": "spandher-project",
+  "version": "1.0.0",
+  "description": "project",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaristGormanly/spandher-project.git"
+  },
+  "author": "Sirtaj Pandher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaristGormanly/spandher-project/issues"
+  },
+  "homepage": "https://github.com/MaristGormanly/spandher-project#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {}
+}
