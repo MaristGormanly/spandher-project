@@ -12,4 +12,7 @@ app.listen(port,()=>{
 
 app.use(express.static('client/public'));
 
+app.get('/img/Hungry_.jpg', function (req, res) {
+    res.sendFile('/img/Hungry_.jpg', { root: './client/public' });
+});
 
