@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Event Feed</title>
+    <!-- link to the CSS file -->
+    <link rel="stylesheet" href="/css/feed.css">
+</head>
+<body>
+    <div class="feed-container">
+        <!-- title of the feed page -->
+        <h2>Live Event Feed</h2>
+        <!-- add new event -->
+        <form id="postForm"> 
+            <input type="text" id="postTitle" placeholder="Event Title" required>
+            <textarea id="postBody" placeholder="Event Details" required></textarea>
+            <!-- submit button to post event -->
+            <button type="submit">Post</button>
+        </form>
+        <ul id="eventList"></ul>
+    </div>
+    <script src="/js/feed.js"></script>
+</body>
+</html>
