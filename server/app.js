@@ -7,7 +7,7 @@ const port = 1337;
 
 app.use(express.json());
 
-// Serve static files from the 'public' folder inside the 'client' directory
+
 app.use(express.static(path.join(__dirname, '../client/public')));
 
 // Home page route

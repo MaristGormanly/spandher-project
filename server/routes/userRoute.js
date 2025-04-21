@@ -12,7 +12,7 @@ router.route('/')
   });
 
 // get user by index 
-router.get('/index/:index', (req, res) => {
+router.get('/user/:index', (req, res) => {
   userController.getUserByIndex(req, res); // get user by index
 });
 

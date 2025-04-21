@@ -4,7 +4,7 @@ console.log("[userController.js] initialized");
 
 let users = [];
 
-// Example users for seeding
+
 let jay = User.createUser("Jay", "Swift", "jay@swift.com", "password123");
 let bruno = User.createUser("Bruno", "Mars", "bruno@mars.com", "password456");
 let greta = User.createUser("Greta", "Thunberg", "greta@thunberg.com", "password789");
@@ -80,7 +80,7 @@ exports.deleteUser = (req, res) => {
   } else {
     res.status(404).send({ message: "User not found" });
   }
-  // Get user by index (for assignment requirement)
+  // Get user by index 
 exports.getUserByIndex = (req, res) => {
     const index = parseInt(req.params.index);
     if (!isNaN(index) && users[index]) {
@@ -91,7 +91,7 @@ exports.getUserByIndex = (req, res) => {
     }
   };
   
-  // Save user with only first/last name (for assignment requirement)
+  // save user with only first/last name 
   exports.saveUser = (req, res) => {
     const { firstName, lastName } = req.body;
     const newUser = User.createUser(firstName, lastName);
