@@ -32,7 +32,7 @@ app.get('/feed', (req, res) => {
 
 // User routes (example, modify according to your API)
 const userRoutes = require('./routes/userRoute');
-app.use('/api/users', userRoutes);
+app.use('/api/user', userRoutes);
 
 // Post routes (example, modify according to your API)
 const postRoutes = require('./routes/postRoute');
