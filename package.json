@@ -19,6 +19,5 @@
   "homepage": "https://github.com/MaristGormanly/spandher-project#readme",
   "dependencies": {
     "express": "^4.21.2"
-  },
-  "devDependencies": {}
+  }
 }

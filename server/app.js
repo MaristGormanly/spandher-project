@@ -4,26 +4,41 @@ const path = require('path');
 const app = express();
 const port = 1337;
 
- 
+
+app.use(express.json());
+
+// Serve static files from the 'public' folder inside the 'client' directory
 app.use(express.static(path.join(__dirname, '../client/public')));
 
-// home page route
+// Home page route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/views/index.html'));
 });
-// login page route
+
+// Login page route
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/views/login.html'));
 });
-// sign up page route
+
+// Sign-up page route
 app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/views/signup.html'));
 });
-// feed page route
+
+// Feed page route
 app.get('/feed', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/views/feed.html'));
 });
 
+// User routes (example, modify according to your API)
+const userRoutes = require('./routes/userRoute');
+app.use('/api/users', userRoutes);
+
+// Post routes (example, modify according to your API)
+const postRoutes = require('./routes/postRoute');
+app.use('/api/posts', postRoutes);
+
+// Start the server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
