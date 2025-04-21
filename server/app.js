@@ -31,11 +31,11 @@ app.get('/feed', (req, res) => {
 });
 
 // User routes (example, modify according to your API)
-const userRoutes = require('./routes/userRoute');
+const userRoutes = require('./route/userRoute');
 app.use('/api/user', userRoutes);
 
 // Post routes (example, modify according to your API)
-const postRoutes = require('./routes/postRoute');
+const postRoutes = require('./route/postRoute');
 app.use('/api/posts', postRoutes);
 
 // Start the server

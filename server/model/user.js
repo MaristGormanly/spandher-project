@@ -8,7 +8,16 @@ class User {
       this.lastName = lastName;
       this.email = email;
       this.password = password;
+      User.users.push(this); // push the user to the array
     }
+    static getUserByIndex(index) {
+        if (index >= 0 && index < User.users.length) {
+          return User.users[index]; // return the user at the given index
+        } else {
+          return null; // return null if the index is out of range
+        }
+    }
+
   
     // Static method to create a user and add to the list
     static createUser(firstName, lastName, email, password) {

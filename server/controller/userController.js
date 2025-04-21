@@ -99,4 +99,6 @@ exports.getUserByIndex = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(201).send(newUser);
   };
-};
+
+  };
+
