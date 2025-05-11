@@ -1,48 +1,43 @@
-// feed.js
-
-document.addEventListener("DOMContentLoaded", function () {
-    const eventList = document.getElementById("eventList");
+document.addEventListener("DOMContentLoaded", () => {
     const postForm = document.getElementById("postForm");
     const postTitle = document.getElementById("postTitle");
     const postBody = document.getElementById("postBody");
-
-    // sample data array
-    let liveEvents = [
-        { title: "Tutoring Sessions", body: "Join our free tutoring sessions every week!" },
-        { title: "Esports Championship", body: "Watch the best teams compete in this year's tournament." },
-        { title: "Live Ted Talk", body: "Security experts discuss the future of cybersecurity." },
-        { title: "Virtual Music Concert", body: "Experience live music from your favorite artists!" },
-        { title: "Science Behind Weather", body: "Learn about meteorology from top scientists." }
-    ];
-
-    // Function to render posts to the feed
-    function renderFeed() {
-        eventList.innerHTML = ""; // Clear the feed before re-rendering
-        liveEvents.forEach(event => {
-            let eventElement = document.createElement("div");
-            eventElement.className = "event";
-            eventElement.innerHTML = `
-                <h3>${event.title}</h3>
-                <p>${event.body}</p>
-                <button class="like-btn"> Like</button>
-            `;
-            eventList.appendChild(eventElement);
-        });
-    }
-
-    // handle new post submission
-    postForm.addEventListener("submit", function (e) {
-        e.preventDefault(); // prevent form reload
-        const newEvent = {
-            title: postTitle.value,
-            body: postBody.value
-        };
-        liveEvents.unshift(newEvent); // add new post to the top
-        renderFeed(); // render feed
-        postTitle.value = "";
-        postBody.value = "";
+    const eventList = document.getElementById("eventList");
+  
+    postForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      const newPost = {
+        title: postTitle.value,
+        body: postBody.value
+      };
+  
+      const res = await fetch('/api/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newPost)
+      });
+  
+      if (res.ok) {
+        postTitle.value = '';
+        postBody.value = '';
+        loadPosts(); // refresh
+      } else {
+        console.error('Post failed');
+      }
     });
-
-    // initial render
-    renderFeed();
-});
+  
+    async function loadPosts() {
+      const res = await fetch('/api/posts');
+      const posts = await res.json();
+      eventList.innerHTML = '';
+      posts.forEach(post => {
+        const el = document.createElement("li");
+        el.innerHTML = `<h3>${post.title}</h3><p>${post.body}</p><small>${new Date(post.created_at).toLocaleString()}</small>`;
+        eventList.appendChild(el);
+      });
+    }
+  
+    loadPosts();
+  });
+  
