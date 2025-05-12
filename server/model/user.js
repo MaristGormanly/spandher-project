@@ -1,9 +1,9 @@
 class User {
-    static idCounter = 0; // Counter to keep track of user IDs
-    static users = []; // Static array to hold users
+    static idCounter = 0; // counter to keep track of user IDs
+    static users = []; // static array to hold users
   
     constructor(firstName, lastName, email, password) {
-      this.id = User.idCounter++; // Incrementing ID for each new user
+      this.id = User.idCounter++; // incrementing ID for each new user
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
